@@ -10,7 +10,7 @@ async function run() {
     // The `who-to-greet` input is defined in action metadata file
     const whoToGreet = core.getInput('who-to-greet', { required: true })
     core.info(`Hello, ${whoToGreet}!`)
-    core.error()
+    core.error('error happened')
     // Get the current time and set as an output
     const time = new Date().toTimeString()
     core.setOutput('time', time)
