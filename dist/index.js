@@ -28476,7 +28476,6 @@ function wrappy (fn, cb) {
 
 const core = __nccwpck_require__(2186)
 const github = __nccwpck_require__(5438)
-
 /**
  * The main function for the action.
  * @returns {Promise<void>} Resolves when the action is complete.
@@ -28486,11 +28485,12 @@ async function run() {
     // The `who-to-greet` input is defined in action metadata file
     const whoToGreet = core.getInput('who-to-greet', { required: true })
     core.info(`Hello, ${whoToGreet}!`)
-    core.error('error happened')
+    core.info(
+      '\u001b[31;46mRed foreground with a cyan background and \u001b[1mbold text at the end'
+    )
     // Get the current time and set as an output
     const time = new Date().toTimeString()
     core.setOutput('time', time)
-
     // Output the payload for debugging
     core.info(
       `The event payload: ${JSON.stringify(github.context.payload, null, 2)}`
